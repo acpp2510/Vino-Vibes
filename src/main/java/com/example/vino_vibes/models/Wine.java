@@ -65,5 +65,83 @@ public class Wine {
         this.user = user;
     }
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getWineName() {
+        return wineName;
+    }
+
+    public void setWineName(String wineName) {
+        this.wineName = wineName;
+    }
+
+    public Double getAlcoholContent() {
+        return alcoholContent;
+    }
+
+    public void setAlcoholContent(Double alcoholContent) {
+        this.alcoholContent = alcoholContent;
+    }
+
+    public String getWineType() {
+        return wineType;
+    }
+
+    public void setWineType(String wineType) {
+        this.wineType = wineType;
+    }
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    public String getGrapeVariety() {
+        return grapeVariety;
+    }
+
+    public void setGrapeVariety(String grapeVariety) {
+        this.grapeVariety = grapeVariety;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
+    public String getWineProducer() {
+        return wineProducer;
+    }
+
+    public void setWineProducer(String wineProducer) {
+        this.wineProducer = wineProducer;
+    }
+
+    public String getUrlProducer() {
+        return urlProducer;
+    }
+
+    public void setUrlProducer(String urlProducer) {
+        this.urlProducer = urlProducer;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
