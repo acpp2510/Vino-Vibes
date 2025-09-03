@@ -2,6 +2,8 @@ package com.example.vino_vibes.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "wines")
 public class Wine {
@@ -36,6 +38,9 @@ public class Wine {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
+
+    @OneToMany(mappedBy = "wine", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Tasting> tastings;
 
     public Wine() {
     }
