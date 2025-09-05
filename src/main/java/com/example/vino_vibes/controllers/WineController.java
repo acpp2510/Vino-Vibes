@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/wines")
+@RequestMapping("/wines/")
 public class WineController {
 
     private final WineService wineService;
@@ -32,7 +32,7 @@ public class WineController {
         return new ResponseEntity<>(wineResponse, HttpStatus.OK);
     }
 
-    @GetMapping("/wines/user")
+    @GetMapping("/user")
     public ResponseEntity<List<WineResponse>> getWinesOfUser(User user) {
         List<WineResponse> wines = wineService.getWinesOfUser(user.getId(), user);
         return new ResponseEntity<>(wines, HttpStatus.OK);
@@ -61,19 +61,19 @@ public class WineController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @GetMapping("/{region}")
+    @GetMapping("/region/{region}")
     public ResponseEntity<List<WineResponse>> getWineByRegion(@PathVariable String region) {
         List<WineResponse> wineResponse = wineService.getWinesByRegion(region);
         return new ResponseEntity<>(wineResponse, HttpStatus.OK);
     }
 
-    @GetMapping("/{type}")
+    @GetMapping("/type/{type}")
     public ResponseEntity<List<WineResponse>> getWineByCity(@PathVariable String type) {
         List<WineResponse> wineResponse = wineService.getWinesByType(type);
         return new ResponseEntity<>(wineResponse, HttpStatus.OK);
     }
 
-    @GetMapping("/{producer}")
+    @GetMapping("/producer/{producer}")
     public ResponseEntity<List<WineResponse>> getWineByCountry(@PathVariable String producer) {
         List<WineResponse> wineResponse = wineService.getWinesByProducer(producer);
         return new ResponseEntity<>(wineResponse, HttpStatus.OK);
