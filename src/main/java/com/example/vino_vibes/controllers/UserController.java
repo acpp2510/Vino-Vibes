@@ -1,6 +1,7 @@
 package com.example.vino_vibes.controllers;
 
 import com.example.vino_vibes.dtos.user.UserRequest;
+import com.example.vino_vibes.dtos.user.UserRequestByAdmin;
 import com.example.vino_vibes.dtos.user.UserResponse;
 import com.example.vino_vibes.services.UserService;
 import jakarta.validation.Valid;
@@ -11,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/users")
 public class UserController {
     private final UserService userService;
 
@@ -19,30 +19,31 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("")
-    public ResponseEntity<List<UserResponse>> getAllUsers() { List<UserResponse> users = userService.getAllUsers();
+    @GetMapping("/users")
+    public ResponseEntity<List<UserResponse>> getAllUsers() {
+        List<UserResponse> users = userService.getAllUsers();
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
-    @PostMapping("")
-    public ResponseEntity<UserResponse> addUser(@Valid @RequestBody UserRequest userRequest) {
-        UserResponse createdUser = userService.addUser(userRequest);
-        return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
-    }
-
-    @GetMapping("/{id}")
+    @GetMapping("/users/{id}")
     public ResponseEntity<UserResponse> getUserById(@PathVariable Long id){
         UserResponse userResponse = userService.getUserResponseById(id);
         return new ResponseEntity<>(userResponse, HttpStatus.OK);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/users/{id}")
     public ResponseEntity<UserResponse> updateUser(@PathVariable Long id, @Valid @RequestBody UserRequest userRequest) {
         UserResponse updatedUser = userService.updateUser(id, userRequest);
         return ResponseEntity.ok(updatedUser);
     }
 
-    @DeleteMapping("/{id}")
+    @PutMapping("/admin/users/{id}")
+    public ResponseEntity<UserResponse> updateUserByAdmin(@PathVariable Long id, @Valid @RequestBody UserRequestByAdmin userRequest) {
+        UserResponse updatedUser = userService.updateUserByAdmin(id, userRequest);
+        return ResponseEntity.ok(updatedUser);
+    }
+
+    @DeleteMapping("/users/{id}")
     public ResponseEntity<Object> deleteUser(@PathVariable Long id){
         userService.deleteUser(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);

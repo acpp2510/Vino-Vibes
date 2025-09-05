@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/tasting")
+@RequestMapping("/tasting")
 public class TastingController {
 
     private final TastingService tastingService;
@@ -32,7 +32,7 @@ public class TastingController {
         return new ResponseEntity<>(tastingResponse, HttpStatus.OK);
     }
 
-    @GetMapping("/tastings/user")
+    @GetMapping("/user")
     public ResponseEntity<List<TastingResponse>> getTastingsOfUser(User user) {
         List<TastingResponse> tastings = tastingService.getTastingsOfUser(user.getId(), user);
         return new ResponseEntity<>(tastings, HttpStatus.OK);
@@ -61,19 +61,19 @@ public class TastingController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @GetMapping("/{region}")
+    @GetMapping("/region/{region}")
     public ResponseEntity<List<TastingResponse>> getTastingByRegion(@PathVariable String region) {
         List<TastingResponse> tastingResponse = tastingService.getTastingsByRegion(region);
         return new ResponseEntity<>(tastingResponse, HttpStatus.OK);
     }
 
-    @GetMapping("/{type}")
+    @GetMapping("/type/{type}")
     public ResponseEntity<List<TastingResponse>> getTastingByCity(@PathVariable String type) {
         List<TastingResponse> tastingResponse = tastingService.getTastingsByWineType(type);
         return new ResponseEntity<>(tastingResponse, HttpStatus.OK);
     }
 
-    @GetMapping("/{producer}")
+    @GetMapping("/type/{producer}")
     public ResponseEntity<List<TastingResponse>> getTastingByCountry(@PathVariable String producer) {
         List<TastingResponse> tastingResponse = tastingService.getTastingsByWineProducer(producer);
         return new ResponseEntity<>(tastingResponse, HttpStatus.OK);
