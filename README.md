@@ -1,4 +1,4 @@
-<hr></hr>
+
 # 🍷 Vino Vibes - Wine & Tasting Management API
 
 A robust REST API for managing users, wines, and tastings, built with **Spring Boot** and modern Java technologies. Perfect for platforms where users can explore, register, and manage wine experiences.
@@ -97,10 +97,10 @@ server:
 ```
 ./mvnw clean install
 ```
-<hr></hr>
+
 📚 API Documentation
 API documentation and examples are available in Postman or by browsing the source code for each route.
-<hr></hr>
+
 
 🌐 Main Endpoints
 🔓 Public (no authentication)
@@ -124,7 +124,7 @@ API documentation and examples are available in Postman or by browsing the sourc
 
 ---
 
-#### 🔐 Authenticated Users (Auth: User)
+🔐 Authenticated Users (Auth: User)
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | `GET`    | `/wines/user` | Get information about the authenticated user |
@@ -138,18 +138,18 @@ API documentation and examples are available in Postman or by browsing the sourc
 
 ---
 
-#### 🛡️ Administrators (Auth: Admin)
+ 🛡️ Administrators (Auth: Admin)
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | `GET`  | `/users` | List all users |
 | `PUT`  | `/admin/users/{id}` | Modify user data or role |
 | `GET`  | `/users/{id}` | Get a user's wines |
 
+---
 
+🔧 Technologies
 
-## 🔧 Technologies
-
-### Backend Stack
+Backend Stack
 - **Java 21+** - Core programming language
 
 - **Spring Boot 3.2.4+** - Application framework
@@ -162,44 +162,26 @@ API documentation and examples are available in Postman or by browsing the sourc
 
 - **MySQL** - Database systems
 
-### Development Tools
+---
+
+Development Tools
 
 - **Postman** - API testing and documentation
 
 - **Maven** - Build automation and dependency management tool
 
-## 📊 Architecture
+---
+
+📊 Architecture
 
 The project follows a clean 3-layer MVC architecture:
 
 Controller → Service → Repository
 
-### 📁 Project Structure
-```
-vino-vibes/
-├── src/
-│   ├── main/
-│   │   ├── java/com/example/vino_vibes/
-│   │   │   ├── controllers/
-│   │   │   ├── dtos/
-│   │   │   ├── exceptions/
-│   │   │   ├── models/
-│   │   │   ├── repositories/
-│   │   │   ├── security/
-│   │   │   ├── services/
-│   │   │   └── VinoVibesApplication.java
-│   │   └── resources/
-│   │       ├── application.yaml
-│   │       └── data.sql
-│   └── test/
-│       └── java/com/example/vino_vibes/
-├── pom.xml
-├── mvnw / mvnw.cmd
-├── .gitignore
-├── README.md
-```
+---
 
-## 🤝 Contributing
+
+ 🤝 Contributing
 We welcome contributions! Follow these steps:
 
 1. Fork the repo
